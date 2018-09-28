@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HeartStone</title>
+</head>
+
+<body>
+  <form action="/cards" method="post">
+    <input type="number" name="mana" placeholder="Mana" id="">
+    <input type="number" name="attack" placeholder="Attack" id="">
+    <input type="number" name="health" placeholder="Health" id="">
+    <input type="text" name="description" id="">
+    <button type="submit">Submit Card</button>
+  </form>
+
+  <h3>Your Current List</h3>
+
+  <% deck.forEach(card => { %>
+  <div>
+    <hr>
+    <p>HEALTH:
+      <%= card.health %>
+    </p>
+    <p>MANA:
+      <%= card.mana %>
+    </p>
+    <p>ATTACK:
+      <%= card.attack %>
+    </p>
+    <p>DESCRIPTION:
+      <%= card.description %>
+    </p>
+
+    <a href="/cards/remove/<%= card.id %>">Remove From List</a>
+
+  </div>
+  <% }) %>
+
+
+
+  <hr>
+  <h1>All Cards:</h1>
+  <% cards.forEach(card => { %>
+  <div>
+    <hr>
+    <p>HEALTH:
+      <%= card.health %>
+    </p>
+    <p>MANA:
+      <%= card.mana %>
+    </p>
+    <p>ATTACK:
+      <%= card.attack %>
+    </p>
+    <p>DESCRIPTION:
+      <%= card.description %>
+    </p>
+
+    <a href="/cards/add/<%= card.id %>">Add To List</a>
+
+  </div>
+  <% }) %>
+
+
+</body>
+
+</html>
